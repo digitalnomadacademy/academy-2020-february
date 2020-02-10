@@ -2,7 +2,7 @@
 ## Yo Yo
 Welcome to to digital nomad academy.
 
-Here are the first steps that you need to make to become before you start the academy.
+Here are the first steps that you need to make before you start the academy.
 
 1. Create github account
 2. Install Discord on your mobile/desktop and join our channel https://discord.gg/NyEKg3j
