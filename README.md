@@ -11,7 +11,7 @@ Here are the first steps that you need to make before you start the academy.
 5. Install Android Emulator https://developer.android.com/studio/run/managing-avds or Enable developer options on your android Phone https://developer.android.com/studio/debug/dev-options
 6. Install Flutter https://flutter.dev/docs/get-started/install
 7. If you are joining intermediate group, check out dart language tour. https://dart.dev/guides/language/language-tour
-
+8. Install git. https://git-scm.com/
 
 That is it and you are ready to go.
 
