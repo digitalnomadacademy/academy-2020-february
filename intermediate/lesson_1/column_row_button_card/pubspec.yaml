@@ -1,4 +1,4 @@
-name: counter_app
+name: column_row_button_card
 description: A new Flutter project.
 
 # The following defines the version and build number for your application.
@@ -19,7 +19,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  provider: any
 
 
   # The following adds the Cupertino Icons font to your application.
