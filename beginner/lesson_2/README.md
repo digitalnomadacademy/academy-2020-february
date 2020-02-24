@@ -7,11 +7,14 @@ Map<int,String> map = {
     1:'One',
     2:'Two',
     3:'Three',
+    15:'Lol'
 };
-print(map[3]) // prints _'Three'_
+print(map[15]); // prints _'Lol'_
 map[17] = 'Seventeen';
 ```
 
+JSON
+Map<String,dynamic>
 
 ## Functions on objects
 
@@ -74,15 +77,16 @@ https://api.dart.dev/stable/2.7.1/dart-core/Map-class.html
 
 
 
-
 ## Homework
 1. Create a function that takes a String and int. String is name, and int is height.
 Add those entries in a map for that name;
 2. Create another function that will be able to return how high is person. It takes only string as parameter.
-3. Create another function that will return all people that are of the height entered. It takes only int as parameter.
-4. Create another function that will delete an entry for name. Takes String.
-5. Create a function that prints all entries.
+3. CAF that will return all people that are of the height entered. It takes only int as parameter.
+4. CAF that will delete an entry for name. Takes String.
+5. CAF that prints all entries.
 
 
 ### Za one koji zele vise
+2. return everyone who is in height span (145 - 190)
 1. Create the same task, but with List.
+2. *www.ecosia.org*
