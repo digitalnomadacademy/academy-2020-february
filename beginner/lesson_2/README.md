@@ -87,6 +87,6 @@ Add those entries in a map for that name;
 
 
 ### Za one koji zele vise
-2. return everyone who is in height span (145 - 190)
 1. Create the same task, but with List.
 2. *www.ecosia.org*
+3. return everyone who is in height span (145 - 190)
