@@ -1,4 +1,4 @@
-# LESSON 1
+# LESSON 2
 
 ## Container
 
@@ -22,4 +22,17 @@ https://api.flutter.dev/flutter/widgets/Stack-class.html
 https://api.flutter.dev/flutter/widgets/Positioned-class.html
 
 ##Homework
+
+1. Style the current timer;
+2. Fix bugs
+3. Create your own Idea for an simple app.
+4. Help others <- important
+
+
+```
+code goes here
+
+SHIFT ENTER
+
+```
 
