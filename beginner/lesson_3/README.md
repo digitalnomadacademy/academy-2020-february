@@ -90,7 +90,6 @@ this code will already create our own type, but what is it useful for?
 
 Lets say that we want to put both name and age inside one Type.
 
-
 ```
 class Person {
 
@@ -116,7 +115,7 @@ Class names are always with big Capital letter,
 The same way we can pass the arguments to our functions, we can do to our types.
 The part of the class that can get that is called *Constructor*
 
-
+###Constructor
 Constructor is written like a function, but with the same name of the class.
 
 
@@ -178,8 +177,21 @@ class Person {
   }
 }
 
-var person = Person(name:'Matej', age:99);
+var person = Person(name:'Matej', surname:'Simunic', age:99);
 ```
 
 ##Homework
-tba...
+
+1. Create 10 functions with mixed argument types
+They all return void, and they print the values.
+
+Try to make couple of them that will not print null if there is no parameter.
+
+2. Create your own type for any purpose.
+
+3. Create fields and functions that are meaningfull.
+
+ZOKV:
+
+4. Inside one type create fields or functions that are using the same type
+5. Create multiple types, where one type is using other types
