@@ -1,5 +1,5 @@
 void main() {
-  Person person = Person();
+  var person = PersonWithNamedConstructorShort(name: 'Ime', age: 46);
   person.age = 15;
   person.name = 'Matej';
 

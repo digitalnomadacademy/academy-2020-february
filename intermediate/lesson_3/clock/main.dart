@@ -11,13 +11,21 @@ class MyApp extends StatefulWidget {
 }
 
 //Model for sharing data
-class TimerModel {
-  Stream<DateTime> timeStream = Stream<DateTime>.periodic(
-      Duration(seconds: 1), (index) => DateTime.now());
+class ClockModel {
+  bool is24Format = true;
+  Color clockColor = Colors.red;
+
+  Stream<DateTime> timeStream =
+  Stream<DateTime>.periodic(Duration(seconds: 1), (index) {
+//    if (index == 5) {
+//      throw 'error is now';
+//    }
+    return DateTime.now();
+  });
 }
 
 class _MyAppState extends State<MyApp> {
-  TimerModel model = TimerModel();
+  ClockModel model = ClockModel();
 
   @override
   Widget build(BuildContext context) {
@@ -36,33 +44,81 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
       ),
       routes: {
-        'home': (context) => HomePage(
+        'home': (context) => Drawer(
           model: model,
         ),
         'clock': (context) => ClockPage(
           model: model,
         )
       },
-      initialRoute: 'home',
+      initialRoute: 'clock',
     );
   }
 }
 
-class HomePage extends StatelessWidget {
+class Drawer extends StatefulWidget {
 //  final fields that we pass on instantiation
-  final TimerModel model;
+  final ClockModel model;
 
-  HomePage({this.model});
+  Drawer({this.model});
 
   @override
+  _DrawerState createState() => _DrawerState();
+}
+
+class _DrawerState extends State<Drawer> {
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.timer),
-        onPressed: () {
-//          Go to timer page
-          Navigator.of(context).pushNamed('clock');
-        },
+    return Container(
+      color: Colors.white,
+      width: MediaQuery.of(context).size.width / 2,
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('Is 24 hour type'),
+                Switch(
+                  value: widget.model.is24Format,
+                  onChanged: (value) {
+                    return widget.model.is24Format = value;
+                  },
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            DropdownButton<Color>(
+              onChanged: (color) {
+                setState(() {
+                  widget.model.clockColor = color;
+                });
+              },
+              value: widget.model.clockColor,
+              items: [
+                DropdownMenuItem<Color>(
+                  value: Colors.red,
+                  child: Text('Red'),
+                ),
+                DropdownMenuItem<Color>(
+                  value: Colors.grey,
+                  child: Text('Grey'),
+                ),
+                DropdownMenuItem<Color>(
+                  value: Colors.green,
+                  child: Text('Green'),
+                ),
+                DropdownMenuItem<Color>(
+                  value: Colors.blue,
+                  child: Text('Blue'),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
@@ -70,37 +126,59 @@ class HomePage extends StatelessWidget {
 
 class ClockPage extends StatelessWidget {
 //  Model passed on construction
-  final TimerModel model;
+  final ClockModel model;
 
   ClockPage({this.model});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        model: model,
+      ),
+      appBar: AppBar(
+        title: Text('Clock'),
+      ),
       body: Center(
+//          child: Text('$timeNow',style: Theme.of(context).textTheme.display1,)
         child: StreamBuilder<DateTime>(
             stream: model.timeStream,
-            builder: (context, snapshot) {
-              if (!snapshot.hasData) {
+            initialData: DateTime.now(),
+            builder: (context, AsyncSnapshot<DateTime> snapshot) {
+              if (snapshot.hasError) {
+                return Text(
+                  'There is error ${snapshot.error}',
+                  style: Theme.of(context).textTheme.display3,
+                );
+              } else if (!snapshot.hasData) {
                 return CircularProgressIndicator();
-              } else if (snapshot.hasError) {
-                return Text('There is error');
+              }
+              var dateTime = snapshot.data;
+              var timeString;
+              if (model.is24Format) {
+                timeString =
+                '${dateTime.hour}:${dateTime.minute}:${dateTime.second}';
+              } else {
+                var suffix;
+                if (dateTime.hour > 12) {
+                  suffix = 'PM';
+                  timeString =
+                  '${dateTime.hour - 12}:${dateTime.minute}:${dateTime.second} $suffix';
+                } else {
+                  suffix = 'AM';
+                  timeString =
+                  '${dateTime.hour}:${dateTime.minute}:${dateTime.second} $suffix';
+                }
               }
               return Text(
-                snapshot.data.toString(),
-
-//        Predefined styles from theme. There is more!
-                style: Theme.of(context).textTheme.display3,
+                timeString,
+                //Predefined styles from theme. There is more!
+                style: Theme.of(context)
+                    .textTheme
+                    .display3
+                    .copyWith(color: model.clockColor),
               );
             }),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child:
-//            conditional expression with (bool ? ifTrueThis : ifFalseThis)
-        Icon(Icons.arrow_back),
-        onPressed: () {
-          Navigator.of(context).pushNamed('home');
-        },
       ),
     );
   }

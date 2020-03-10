@@ -50,3 +50,14 @@ Future<bool> asyncFunction () async {
 }
 There is future builder as well
 https://api.flutter.dev/flutter/widgets/FutureBuilder-class.html
+
+
+Homework
+
+1. Install flutter gallery `flutter/examples/flutter_gallery`
+2. Play with different clock options
+3. Continue with your own app
+4. [Check Almas Tic Tac Toe](https://github.com/almasmajic/tictactoe)
+
+
+5. https://flutter.dev/docs/codelabs#firebase-for-flutter
