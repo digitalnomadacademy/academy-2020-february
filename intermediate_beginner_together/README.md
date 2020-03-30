@@ -61,6 +61,7 @@ where `name1` and `name2` are your names.
 Make sure to add your friend inside the repository, so that he can make changes as well.
 
 3. One of you will create
+* open flutter application
 * `git init`
 * add first git ignore - commit
 * add the rest of counter app - commit
@@ -68,22 +69,27 @@ Make sure to add your friend inside the repository, so that he can make changes 
 * push your changes
 
 4. Other will clone the repository that was created (file new from version control, or clone in source tree)
-
-5. One of you will change the appbar. 
 First open your branch with your name.
-Add leading icon. Add trailing text. Change title. Center title.
+
+5. One of you will change the appbar.
+Add leading icon.
+Add trailing text.
+Change title.
+ Center title.
 Commit every change separately after the change.
 
 6. Other will change the body.
-First open the branch with your name.
 Instead of Column with text, you will create centered Container with rounded corners.
 child of that Container will be text that will show number of counter button presses.
- 
+Commit every change separately after the change.
+
 // Make sure to push your branch as well to the remote
 
 
 7.After each of you have done your changes, merge your changes to master branch.
 After your friend has merged your changes to master branch, pull his changes localy.
 
+p.s. If one of you has already pushed to master.
+Before you can push, you have to pull first.
 Proof of this will be link to the git repository.
 

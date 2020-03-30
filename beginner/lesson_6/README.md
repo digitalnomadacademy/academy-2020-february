@@ -23,5 +23,9 @@ ZOKZV
 
 Create an example with
 
-`ListWheelScrollView`
+`ListWheelScrollView` Create Time Picker ( HH:MM ) || (DD:MM:YYYY)
+
+
 `ReorderableListView`
+1. Create `List<int>` with 10 members that are random integers [0,100>
+2. Record a gif where you reorder that list on device or emulator.
